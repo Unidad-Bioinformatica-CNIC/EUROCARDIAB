@@ -1,0 +1,45 @@
+indicator,description
+diab_1, percentaje of patients with diabetes that have their glycosilated hemoglobin levels measured
+diab_2, percentaje of patients with diabetes and getting their glycosilated hemoglobin levels measured that have levels over 7%
+diab_3, percentaje of patients with diabetes and getting their glycosilated hemoglobin levels measured that have levels over 8%
+diab_4, percentaje of patients with diabetes that have also hypertension
+diab_5, percentaje of patients with diabetes that have their blood preasure measured
+diab_6, percentaje of patients with diabetes and getting their blood preasure measured that have levels over 130 mmHg
+diab_7, percentaje of patients with diabetes that have been submitted to a diabetic retinopathy screening procedure
+diab_8, percentaje of patients with diabetes that have also a diabet retinopathy
+diab_9, percentaje of patients with diabetes that have also diabetic kidney disorders
+diab_10, percentaje of patients with diabetes that have started taking medication for controling it after its diagnose
+diab_11, percentaje of patients with diabetes taking medication for controling it that take insulin
+diab_12, percentaje of patients with diabetes taking medication for controling it that take lowering glucose drugs different to the insulin
+diab_13, percentaje of patients with diabetes that starts taking statins after the diagnose of the diabetes
+diab_14, percentaje of patients with diabetes that take statins
+cvd_1, percentaje of patients with any heart failure that are treated with an intravenous diuretic
+cvd_2, percentaje of patients presenting chest pain in urgency that are diagnosed with an acute coronary syndrome
+cvd_3, percentaje of patients presenting chest pain in urgency that are diagnosed as STEMI
+cvd_4, percentaje of patients presenting chest pain in urgency and diagnosed as STEMI that are subjected to a coronarography
+cvd_5, percentaje of patients presenting chest pain in urgency diagnosed as STEMI and subjected to a coronarography that show a coronary occlusion 
+cvd_6, percentaje of patients presenting chest pain in urgency diagnosed as STEMI subjected to a coronarography and showing a coronary occlusion that are subjected to the placement of an STENT
+cvd_7, percentaje of patients presenting chest pain in urgency that are diagnosed as NSTEMI
+cvd_8, percentaje of patients presenting chest pain in urgency and diagnosed as NSTEMI that are subjected to a coronarography
+cvd_9, percentaje of patients presenting chest pain in urgency diagnosed as NSTEMI and subjected to a coronarography that show a coronary occlusion 
+cvd_10, percentaje of patients presenting chest pain in urgency diagnosed as NSTEMI subjected to a coronarography and showing a coronary occlusion that are subjected to the placement of an STENT
+cvd_11, percentaje of patients presenting chest pain in urgency that are diagnosed as Takotsubo
+cvd_12, percentaje of patients presenting chest pain in urgency and diagnosed as Takotsubo that are subjected to a coronarography
+cvd_13, percentaje of patients presenting chest pain in urgency diagnosed as Takotsubo and subjected to a coronarography that show a coronary occlusion 
+cvd_14, percentaje of patients presenting chest pain in urgency diagnosed as Takotsubo subjected to a coronarography and showing a coronary occlusion that are subjected to the placement of an STENT
+cvd_15, percentaje of patients presenting chest pain in urgency that are diagnosed as unstable angina pectoris
+cvd_16, percentaje of patients presenting chest pain in urgency and diagnosed as unstable angina pectoris that are subjected to a coronarography
+cvd_17, percentaje of patients presenting chest pain in urgency diagnosed as unstable angina pectoris and subjected to a coronarography that show a coronary occlusion 
+cvd_18, percentaje of patients presenting chest pain in urgency diagnosed as unstable angina pectoris subjected to a coronarography and showing a coronary occlusion that are subjected to the placement of an STENT
+cvd_19, percentaje of patients diagnosed with NSTEMI that are subjected to the placement of an STENT or to a fibrinolysis procedure in the first 12 hours after the diagnose
+cvd_20, percentaje of patients discharged after a heart faiulure event that are readmitted in less than 30 days with a heart failure
+cvd_21, percentaje of patients discharged after a heart faiulure event that are readmitted in less than 30 days with any cardiovascular disease
+cvd_22, percentaje of patients subjectedt to a TAVI procedure that are readmitted in less than 30 days with a postoperatory infection 
+cvd_23, percentaje of patients discharged after any heart failure that die in less that 30 days after being discharged
+cvd_24, median time since a patient diagnosed with a NSTEMI arrives to the hospital to the moment when it is subjected to the placement of an STENT
+cvd_25, percentaje of patients with any cardiovascular finding that are also diagnosed with hypertension
+cvd_26, percentaje of patients with any cardiovascular finding and diagnosed with hypertension that also get their blood preasure measured
+cvd_27, percentaje of patients with any cardiovascular finding diagnosed with hypertension and getting their blood preasure measured that have blood preasure over 130 mmHg
+cvd_28, percentaje of patients with any cardiovascular finding that are also diagnosed with diabetes
+cvd_29, percentaje of patients with any cardiovascular finding that also smoke
+cvd_30, percentaje of patients with any cardiovasculat finding that slso take estatins

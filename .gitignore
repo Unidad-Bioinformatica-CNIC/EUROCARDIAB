@@ -1,0 +1,5 @@
+env
+.vscode/*
+src/__pycache__/*
+results
+test_results
