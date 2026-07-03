@@ -37,18 +37,18 @@ cvd_hour_statistic_results_df = pd.DataFrame()
 
 ########## CODE ##########
 #### Diabetes Indicators ####
-num_diab_indicators = 14
-for i in range(1,num_diab_indicators+1):
-    diab_numerator_df = utils.run_sql_script_df(Path(f"SQL/postgres/diab_{i}_numerator.sql"),substitutiuon_identifiers,engine)
-    diab_denominator = utils.run_sql_script(Path(f"SQL/postgres/diab_{i}_denominator.sql"),substitutiuon_identifiers,engine).all()[0][0]
-    if (diab_denominator == 0):
-        print(f"Warning at diabates indicator {i} !!!")
-        print(f"Error al calcular el indicador. El denominador del indicador es zero")
-    else:
-        diab_persons_results_df = utils.fill_persons_df(diab_persons_results_df, f"diab_{i}", diab_numerator_df, diab_denominator)
-    print(f"Finished calculating indicator: diab_{i}")
+# num_diab_indicators = 14
+# for i in range(1,num_diab_indicators+1):
+#     diab_numerator_df = utils.run_sql_script_df(Path(f"SQL/postgres/diab_{i}_numerator.sql"),substitutiuon_identifiers,engine)
+#     diab_denominator = utils.run_sql_script(Path(f"SQL/postgres/diab_{i}_denominator.sql"),substitutiuon_identifiers,engine).all()[0][0]
+#     if (diab_denominator == 0):
+#         print(f"Warning at diabates indicator {i} !!!")
+#         print(f"Error al calcular el indicador. El denominador del indicador es zero")
+#     else:
+#         diab_persons_results_df = utils.fill_persons_df(diab_persons_results_df, f"diab_{i}", diab_numerator_df, diab_denominator)
+#     print(f"Finished calculating indicator: diab_{i}")
 
-diab_persons_results_df.to_csv('results/diab_persons_indicators.csv', index=False, mode='w')
+# diab_persons_results_df.to_csv('results/diab_persons_indicators.csv', index=False, mode='w')
 
 
 #### Cardiovascular Indicators ####
@@ -62,11 +62,11 @@ for i in range(1,num_cvd_indicators+1):
             print(f"Error al calcular el indicador. El denominador del indicador cvd_{i} es zero")
         else:
             cvd_persons_results_df = utils.fill_persons_df(cvd_persons_results_df, f"cvd_{i}", cvd_numerator_df, cvd_denominator)
-            print(f"Finished calculating indicator: diab_{i}")
+            print(f"Finished calculating indicator: cvd_{i}")
     else:
         cvd_hour_statistic_df = utils.run_sql_script_df(Path(f"SQL/postgres/cvd_{i}.sql"), substitutiuon_identifiers, engine)
         cvd_hour_statistic_results_df = utils.fill_hour_statistics_df(cvd_hour_statistic_results_df, f"cvd_{i}", cvd_hour_statistic_df)
-        print(f"Finished calculating indicator: diab_{i}")
+        print(f"Finished calculating indicator: cvd_{i}")
         
 
 cvd_persons_results_df.to_csv('results/cvd_persons_indicators.csv', index=False, mode='w')
