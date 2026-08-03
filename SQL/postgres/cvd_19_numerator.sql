@@ -7,7 +7,7 @@ WITH nstemi_patients AS (
     FROM {cdm_schema}.condition_occurrence co
     JOIN {vocab_schema}.concept_ancestor ca
         ON co.condition_concept_id = ca.descendant_concept_id
-    WHERE ca.ancestor_concept_id = 4270024  -- NSTEMI
+    WHERE ca.ancestor_concept_id in (4270024, 45766241)  -- NSTEMI
 ),
 revascularization_procedures AS (
     SELECT DISTINCT
@@ -19,7 +19,7 @@ revascularization_procedures AS (
         ON po.procedure_concept_id = ca.descendant_concept_id
     WHERE ca.ancestor_concept_id = 1243618   -- Stent
        OR ca.ancestor_concept_id = 4216130   -- Percutaneous coronary intervention
-       OR ca.ancestor_concept_id = 40757023  -- Instillation of fibrinolytic agent using catheter for fibrinolysis, initial day
+       OR ca.ancestor_concept_id in (40757023, 40756967)  -- Instillation of fibrinolytic agent using catheter for fibrinolysis, (initial day, subsequent day)
 )
 SELECT COUNT(DISTINCT np.person_id) AS total_patients, p.gender_concept_id, FLOOR((extract( year from rp.procedure_date) - p.YEAR_OF_BIRTH) /10) AS age_decile
 FROM nstemi_patients np

@@ -16,7 +16,7 @@ infeccion_postop AS (
     FROM {cdm_schema}.condition_occurrence co
     JOIN {vocab_schema}.concept_ancestor ca_cond
         ON co.condition_concept_id = ca_cond.descendant_concept_id
-       AND ca_cond.ancestor_concept_id = 437474
+       AND ca_cond.ancestor_concept_id = 437474     --postoperative infection
 )
 SELECT
     COUNT(DISTINCT ip.person_id)  AS total_patients, p.gender_concept_id, FLOOR((extract( year from ip.condition_start_date) - p.YEAR_OF_BIRTH) /10) AS age_decile

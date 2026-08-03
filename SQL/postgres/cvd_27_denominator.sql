@@ -11,4 +11,7 @@ FROM {cdm_schema}.condition_occurrence co
         ON co.person_id = m.person_id
     JOIN {vocab_schema}.concept_ancestor ca3
         ON m.measurement_concept_id = ca3.descendant_concept_id
-WHERE ca.ancestor_concept_id = 4023995 AND ca2.ancestor_concept_id = 316866 AND ca3.ancestor_concept_id = 4326744 AND co.condition_occurrence_id != co2.condition_occurrence_id;
+WHERE ca.ancestor_concept_id = 4023995  --cardiovascular finding 
+AND ca2.ancestor_concept_id = 316866    --hipertensive disorder 
+AND ca3.ancestor_concept_id = 4326744   --blood preasure measurement
+AND co.condition_occurrence_id != co2.condition_occurrence_id;

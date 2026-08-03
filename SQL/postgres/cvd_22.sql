@@ -16,7 +16,7 @@ infeccion_postop AS (
     FROM {cdm_schema}.condition_occurrence co
     JOIN {vocab_schema}.concept_ancestor ca_cond
         ON co.condition_concept_id = ca_cond.descendant_concept_id
-       AND ca_cond.ancestor_concept_id = 437474
+       AND ca_cond.ancestor_concept_id = 437474     
 )
 SELECT
     COUNT(DISTINCT tv.person_id)  AS total_pacientes_trasplantados,

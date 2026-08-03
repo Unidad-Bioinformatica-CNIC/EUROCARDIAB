@@ -14,4 +14,6 @@ SELECT count (DISTINCT pre.person_id) AS total_patients
 	FROM pre
 	LEFT JOIN {cdm_schema}.death d
 		ON pre.person_id = d.person_id
-    WHERE pre.ancestor_concept_id = 316139 AND pre.visit_concept_id = 9201 AND (pre.visit_end_date IS DISTINCT FROM d.death_date); -- 9201 inpatient visit and no dieying in the visit
+    WHERE pre.ancestor_concept_id = 316139	--heart failure
+	AND pre.visit_concept_id = 9201 	--inpatient visit
+	AND (pre.visit_end_date IS DISTINCT FROM d.death_date); --and no dieying in the visit

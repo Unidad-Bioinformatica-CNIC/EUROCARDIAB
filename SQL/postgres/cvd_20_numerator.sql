@@ -16,7 +16,8 @@ WITH heart_failure_patients AS (
 		ON co.visit_occurrence_id = vo.visit_occurrence_id
 	FULL JOIN {cdm_schema}.death d
 		ON co.person_id = d.person_id
-    WHERE ca.ancestor_concept_id = 316139 AND vo.visit_concept_id = 9201
+    WHERE ca.ancestor_concept_id = 316139   --heart failure
+    AND vo.visit_concept_id = 9201          --inpatient visit
 ),
 readmissions AS (
     SELECT

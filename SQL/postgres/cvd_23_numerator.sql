@@ -14,7 +14,9 @@ dead_patients AS (SELECT *
 	FROM pre
 	JOIN {cdm_schema}.death d
 		ON pre.patient = d.person_id
-    WHERE pre.ancestor_concept_id = 316139 AND pre.visit_concept_id = 9201 AND (pre.visit_end_date IS DISTINCT FROM d.death_date))
+    WHERE pre.ancestor_concept_id = 316139  --heart failure
+	AND pre.visit_concept_id = 9201 		--inpatient visit
+	AND (pre.visit_end_date IS DISTINCT FROM d.death_date))  -- not die in same visit
 SELECT COUNT (DISTINCT patient) AS total_patients, p.gender_concept_id, FLOOR((extract( year from dp.death_date) - p.YEAR_OF_BIRTH) /10) AS age_decile
 FROM dead_patients dp
 JOIN {cdm_schema}.person p

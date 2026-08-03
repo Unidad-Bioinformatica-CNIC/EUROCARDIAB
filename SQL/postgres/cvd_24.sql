@@ -6,19 +6,25 @@ WITH nstemi_patients AS (
     FROM {cdm_schema}.condition_occurrence co
     JOIN {vocab_schema}.concept_ancestor ca
         ON co.condition_concept_id = ca.descendant_concept_id
-    WHERE ca.ancestor_concept_id = 4270024  -- NSTEMI
-    AND visit_occurrence_id IS NOT NULL
+	JOIN h_12_oct.visit_occurrence vo
+		ON co.person_id = vo.person_id
+    WHERE ca.ancestor_concept_id in (4270024, 45766241)  -- NSTEMI
+    AND co.visit_occurrence_id IS NOT NULL
+    AND vo.admitting_source_concept_id = 9203 -- Admision por Urgencias
 ),
 first_stent AS (
     SELECT DISTINCT
         po.person_id,
         po.visit_occurrence_id,
-        COALESCE(po.procedure_datetime, CAST(po.procedure_date AS TIMESTAMP)) AS first_stent_dt
+        COALESCE(po.procedure_datetime, po.procedure_date::TIMESTAMP) AS first_stent_dt
     FROM {cdm_schema}.procedure_occurrence po
     JOIN {vocab_schema}.concept_ancestor ca
         ON po.procedure_concept_id = ca.descendant_concept_id
+	JOIN h_12_oct.visit_occurrence vo
+		ON po.person_id = vo.person_id
     WHERE ca.ancestor_concept_id = 1243618  -- Stent
-    AND visit_occurrence_id IS NOT NULL
+    AND po.visit_occurrence_id IS NOT NULL
+    AND vo.admitting_source_concept_id = 9203 -- Admision por Urgencias
 ),
 time_to_stent AS (
     SELECT

@@ -7,4 +7,6 @@ FROM {cdm_schema}.condition_occurrence co
         ON co.person_id = co2.person_id
 	JOIN {vocab_schema}.concept_ancestor ca2
 		ON co2.condition_concept_id = ca2.descendant_concept_id
-WHERE ca.ancestor_concept_id = 4023995 AND ca2.ancestor_concept_id = 316866 AND co.condition_occurrence_id != co2.condition_occurrence_id; -- 4023995 cardiovascular finding, 316866 hypertensive disorder
+WHERE ca.ancestor_concept_id = 4023995  --cardiovascular finding
+AND ca2.ancestor_concept_id = 316866    --hipertensive disorder
+AND co.condition_occurrence_id != co2.condition_occurrence_id;

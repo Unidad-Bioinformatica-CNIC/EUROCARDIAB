@@ -17,7 +17,8 @@ WITH heart_failure_patients AS (
 		ON co.visit_occurrence_id = vo.visit_occurrence_id
 	FULL JOIN {cdm_schema}.death d
 		ON co.person_id = d.person_id
-    WHERE (ca.ancestor_concept_id = 316139 or ca.ancestor_concept_id = 321588) AND vo.visit_concept_id = 9201
+    WHERE (ca.ancestor_concept_id = 316139 or ca.ancestor_concept_id = 321588) 
+    AND vo.visit_concept_id = 9201  --inpatient visit
 ),
 readmissions AS (
     SELECT
@@ -44,5 +45,6 @@ SELECT COUNT(distinct r.person_id) AS total_patients, p.gender_concept_id, FLOOR
 FROM readmissions r
 JOIN {cdm_schema}.person p
     ON r.person_id = p.person_id
-WHERE r.first_event_ancestor = 316139 and r.second_event_ancestor = 321588
+WHERE r.first_event_ancestor = 316139   --heart failure
+AND r.second_event_ancestor = 321588    --heart dissease
 GROUP BY p.gender_concept_id, FLOOR((extract( year from r.second_event_date) - p.YEAR_OF_BIRTH) /10);
