@@ -16,6 +16,6 @@ JOIN {vocab_schema}.concept_ancestor ca3
 JOIN {cdm_schema}.person p
     ON co.person_id = p.person_id
 WHERE co.condition_concept_id = 77670	--chest pain 
-AND vo.admited_from_concept_id = 9203	--Urgencias
+AND vo.{admision_field} = 9203	--Urgencias
 AND ca2.ancestor_concept_id = 40479589  --Takotsubo cardiomyopathy
 AND ca3.ancestor_concept_id = 4142645;  --Coronary angiography

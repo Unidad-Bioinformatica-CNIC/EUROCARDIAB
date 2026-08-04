@@ -18,7 +18,7 @@ JOIN {cdm_schema}.condition_occurrence co3
 JOIN {vocab_schema}.concept_ancestor ca4
 	ON co3.condition_concept_id = ca4.descendant_concept_id
 WHERE ca.ancestor_concept_id = 77670	--chest pain
-AND vo.admited_from_concept_id = 9203   --Urgencias 
+AND vo.{admision_field} = 9203   --Urgencias 
 AND ca2.ancestor_concept_id = 315296 	--Unestable angina pectoris
 AND ca3.ancestor_concept_id = 4142645 	--Coronary angiography
 AND ca4.ancestor_concept_id = 316995;	--Coronary oclussion

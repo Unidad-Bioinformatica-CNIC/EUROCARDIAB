@@ -12,5 +12,5 @@ JOIN {vocab_schema}.concept_ancestor ca2
 JOIN {cdm_schema}.person p
     ON co.person_id = p.person_id
 WHERE ca.ancestor_concept_id = 77670 	--chest pain
-AND vo.admited_from_concept_id = 9203	--Urgencias
+AND vo.{admision_field} = 9203	--Urgencias
 AND ca2.ancestor_concept_id in (4270024, 45766241);    --NSTEMI
