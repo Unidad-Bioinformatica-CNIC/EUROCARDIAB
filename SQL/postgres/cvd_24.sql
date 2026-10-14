@@ -6,7 +6,7 @@ WITH nstemi_patients AS (
     FROM {cdm_schema}.condition_occurrence co
     JOIN {vocab_schema}.concept_ancestor ca
         ON co.condition_concept_id = ca.descendant_concept_id
-	JOIN h_12_oct.visit_occurrence vo
+	JOIN {cdm_schema}.visit_occurrence vo
 		ON co.person_id = vo.person_id
     WHERE ca.ancestor_concept_id in (4270024, 45766241)  -- NSTEMI
     AND co.visit_occurrence_id IS NOT NULL
@@ -20,7 +20,7 @@ first_stent AS (
     FROM {cdm_schema}.procedure_occurrence po
     JOIN {vocab_schema}.concept_ancestor ca
         ON po.procedure_concept_id = ca.descendant_concept_id
-	JOIN h_12_oct.visit_occurrence vo
+	JOIN {cdm_schema}.visit_occurrence vo
 		ON po.person_id = vo.person_id
     WHERE ca.ancestor_concept_id = 1243618  -- Stent
     AND po.visit_occurrence_id IS NOT NULL
