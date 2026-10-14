@@ -9,6 +9,6 @@ JOIN {vocab_schema}.concept_ancestor ca_bloodp
     ON m.measurement_concept_id = ca_bloodp.descendant_concept_id
 JOIN {cdm_schema}.person p
     ON co.person_id = p.person_id
-WHERE ca.ancestor_concept_id = 201820
+WHERE (ca.ancestor_concept_id = 201820 or co.condition_concept_id = 201820)
   AND ca_bloodp.ancestor_concept_id = 4326744 -- blood preasure
 GROUP BY p.gender_concept_id, FLOOR((extract( year from co.condition_start_date) - p.YEAR_OF_BIRTH) /10);
