@@ -40,7 +40,7 @@ cvd_hour_statistic_results_df = pd.DataFrame()
 ########## CODE ##########
 #### Diabetes Indicators ####
 num_diab_indicators = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
-for i in range(1,num_diab_indicators+1):
+for i in num_diab_indicators:
     diab_numerator_df = utils.run_sql_script_df(Path(f"SQL/postgres/diab_{i}_numerator.sql"),substitutiuon_identifiers,engine)
     diab_denominator = utils.run_sql_script(Path(f"SQL/postgres/diab_{i}_denominator.sql"),substitutiuon_identifiers,engine).all()[0][0]
     if (diab_denominator == 0):
@@ -60,7 +60,7 @@ for i in list_cvd_indicators:
         cvd_numerator_df = utils.run_sql_script_df(Path(f"SQL/postgres/cvd_{i}_numerator.sql"),substitutiuon_identifiers,engine)
         cvd_denominator = utils.run_sql_script(Path(f"SQL/postgres/cvd_{i}_denominator.sql"),substitutiuon_identifiers,engine).all()[0][0]
         if (cvd_denominator == 0):
-            print(f"Warning at diabates indicator {i} !!!")
+            print(f"Warning at cvd indicator {i} !!!")
             print(f"Error al calcular el indicador. El denominador del indicador cvd_{i} es zero")
         else:
             cvd_persons_results_df = utils.fill_persons_df(cvd_persons_results_df, f"cvd_{i}", cvd_numerator_df, cvd_denominator)
