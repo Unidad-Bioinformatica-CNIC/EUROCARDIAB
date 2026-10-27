@@ -10,7 +10,7 @@ WITH nstemi_patients AS (
 		ON co.person_id = vo.person_id
     WHERE ca.ancestor_concept_id in (4270024, 45766241)  -- NSTEMI
     AND co.visit_occurrence_id IS NOT NULL
-    AND vo.admitting_source_concept_id = 9203 -- Admision por Urgencias
+    AND vo.{admision_field} = 9203 -- Admision por Urgencias
 ),
 first_stent AS (
     SELECT DISTINCT
@@ -24,7 +24,7 @@ first_stent AS (
 		ON po.person_id = vo.person_id
     WHERE ca.ancestor_concept_id = 1243618  -- Stent
     AND po.visit_occurrence_id IS NOT NULL
-    AND vo.admitting_source_concept_id = 9203 -- Admision por Urgencias
+    AND vo.{admision_field} = 9203 -- Admision por Urgencias
 ),
 time_to_stent AS (
     SELECT
